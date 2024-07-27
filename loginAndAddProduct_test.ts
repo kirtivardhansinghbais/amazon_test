@@ -1,9 +1,11 @@
-import {  } from "module";import loginPage from "./pageObject/loginPage";
+import {  } from "module";import loginPage from "./pageObject/loginPage"
+import { loginData } from "./data/loginData"
 
 Feature('Amazon');
 
 Scenario('login and add product',  ({ I }) => {
-    I.amOnPage('/');
-    I.wait(2);
-    loginPage.login("9993056686", "9425442297");
-});
+    I.amOnPage('/')
+    I.wait(1)
+    loginPage.login(loginData.username, loginData.password)
+    
+})
