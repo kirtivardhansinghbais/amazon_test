@@ -1,42 +1,33 @@
-import { loginData } from "../data/loginData";
-import commonPage from "./commonPage";
+import { loginData } from "../data/loginData"
+import commonPage from "./commonPage"
 const { expect } = require('@playwright/test')
 
 const { I } = inject()
 
-
 class LoginPage {
 
-  async login(username: string, password: string) {
-    expect(await commonPage.elementById(loginData.elements.signInById)).toBeVisible()
-    I.click(await commonPage.elementById(loginData.elements.signInById))
-    expect(await commonPage.elementByType(loginData.elements.emailByType)).toBeVisible()
-    I.fillField(await commonPage.elementByType(loginData.elements.emailByType), username)
+  async login(username: string, phoneNumber: string, password: string) {
+    I.seeElement(await commonPage.elementById(loginData.elements.accountById))
+    I.click(await commonPage.elementById(loginData.elements.accountById))
+    I.seeElement(await commonPage.elementByType(loginData.elements.emailByType))
+    I.fillField(await commonPage.elementByType(loginData.elements.emailByType), phoneNumber)
     I.click(await commonPage.elementByType(loginData.elements.continueButtonByType))
-    expect(await commonPage.elementById(loginData.elements.passwordById)).toBeVisible()
+    I.seeElement(await commonPage.elementById(loginData.elements.passwordById))
     I.fillField(await commonPage.elementById(loginData.elements.passwordById), password)
-    expect(await commonPage.elementById(loginData.elements.signInButtonById)).toBeVisible()
+    I.seeElement(await commonPage.elementById(loginData.elements.signInButtonById))
     I.click(await commonPage.elementById(loginData.elements.signInButtonById))
-    I.wait(2)
+    I.seeElement(await commonPage.elementById(loginData.elements.accountById))
+    I.click(await commonPage.elementById(loginData.elements.accountById))
+    I.seeElement(await commonPage.elementByText(loginData.elements.shoppingProgramByText))
+    I.seeElement(await commonPage.elementByText(loginData.elements.manageYourProfilesByText))
+    I.click(await commonPage.elementByText(loginData.elements.manageYourProfilesByText))
+    I.see("Manage your Profiles", await commonPage.elementById(loginData.elements.manageYourProfilesHeadingById))
+    I.click(await commonPage.elementByNameAndFollowingP(loginData.elements.userProfileByName))
+    I.see(username, await commonPage.elementById(loginData.elements.profileNameBtId))
+    I.see("Account holder",await commonPage.elementById(loginData.elements.profleType))
+
   }
 
-  // async searchAndAddProduct(productName: string) {
-  //   I.fillField('#twotabsearchtextbox', productName)
-  //   I.click('input.nav-input[type="submit"]')
-  //   I.waitForElement('//div[@data-asin]', 10)
-  //   I.click('//div[@data-asin]//h2/a')
-  //   I.waitForElement('#add-to-cart-button', 10)
-  //   I.click('#add-to-cart-button')
-  // }
-
-  // async navigateToHomePageFromProduct() {
-  //   I.click('#nav-logo-sprites')
-  // }
-
-  // async verifyCart(productName: string) {
-  //   I.click('#nav-cart')
-  //   I.see(productName, '.sc-list-item-content')
-  // }
 }
 
 export = new LoginPage()
