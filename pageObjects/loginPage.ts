@@ -1,7 +1,6 @@
 import { dashBoardData } from "../data/dashBoardData"
 import { loginData } from "../data/loginData"
 import commonPage from "./commonPage"
-const { expect } = require('@playwright/test')
 
 const { I } = inject()
 
@@ -36,21 +35,21 @@ class LoginPage {
     I.click(await commonPage.elementById(loginData.elements.signInButtonById))
     // Verify the account option.
     I.seeElement(await commonPage.elementById(loginData.elements.accountById))
-    // Added wait for 5 sec.
-    I.wait(4)
+    // Added wait for 3 sec.
+    I.wait(3)
     // Hover over the account option.
     I.moveCursorTo(await commonPage.elementById(loginData.elements.accountById))
-    //Verify the manage account button.
+    // Verify the manage account button.
     I.waitForElement(await commonPage.elementByDataTestId(dashBoardData.elements.manageProfileButtonByDataTestId), 10)
     // Click on the manage account button.
     I.click(await commonPage.elementByDataTestId(dashBoardData.elements.manageProfileButtonByDataTestId))
-    //Verify the who is shopping pop up.
+    // Verify the who is shopping pop up.
     I.seeElement(await commonPage.elementByText(dashBoardData.elements.whoIsShoppingPopUpByText))
     // Verify user name.
     I.see(username, await commonPage.elementByDataTestId(dashBoardData.elements.userAccountByDataTestId))
     // Verify account holder title.
     I.see("Account holder", await commonPage.elementByDataTestId(dashBoardData.elements.userAccountByDataTestId))
-    //ssssssVerify the close button.
+    // Verify the close button.
     I.seeElement(await commonPage.elementByAriaLabel(dashBoardData.elements.closeButtonByAriaLabel))
     // Click on the close button.
     I.click(await commonPage.elementByAriaLabel(dashBoardData.elements.closeButtonByAriaLabel))

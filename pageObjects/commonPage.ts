@@ -1,18 +1,9 @@
 import { dashBoardData } from "../data/dashBoardData"
 import { loginData } from "../data/loginData"
-import { productData } from "../data/productData"
 
 const { I } = inject()
 
 class CommonPage {
-
-  /**
-  * element by data id
-  * @param value
-  */
-  async elementByDataId(value: string) {
-    return locate(`//*[@data-id='${value}']`)
-  }
 
   /**
   * element by text
@@ -31,14 +22,6 @@ class CommonPage {
   }
 
   /**
-  * element by placeholder
-  * @param value
-  */
-  async elementByPlaceholder(value: string) {
-    return locate(`//*[@placeholder='${value}']`)
-  }
-
-  /**
   * element by id
   * @param value
   */
@@ -47,7 +30,7 @@ class CommonPage {
   }
 
   /**
-  * element by datz-testid
+  * element by data-testid
   * @param value
   */
   async elementByDataTestId(value: string) {
@@ -63,44 +46,11 @@ class CommonPage {
   }
 
   /**
-  * element by Id and folllowing P
+  * delete by area lable
   * @param value
   */
-  async elementByIdAndFollowingP(value: string) {
-    return locate(`(//*[@id='${value}']//following-sibling::p)`)
-  }
-
-  /**
-  * element by name
-  * @param value
-  */
-  async elementByName(value: string) {
-    return locate(`(//*[@name='${value}']`)
-  }
-
-  /**
-  * element by name and following span class
-  * @param value
-  */
-  async elementByNameAndFollowingSpan(value: string) {
-    return locate(`(//input[@name='${value}']//following::span)`)
-  }
-
-  /**
-  * element by Id following-sibling and value
-  * @param value1
-  * @param value2
-  */
-  async elementByIdAndValue(value1: string, value2: string) {
-    return locate(` //*[@id='${value1}']//following-sibling::*[@value='${value2}']`)
-  }
-
-  /**
-  * element by h1 and text
-  * @param value1
-  */
-  async elementByh1AndText(value: string) {
-    return locate(`//h1[contains(text(),${value})]`)
+  async deleteByAriaLable(value: string) {
+    return locate(`//*[@aria-label=('Delete ${value}')]`)
   }
 
   /**
@@ -128,20 +78,6 @@ class CommonPage {
     I.seeElement(await this.elementById(dashBoardData.elements.logoById))
     // Click on the amazon logo.
     I.click(await this.elementById(dashBoardData.elements.logoById))
-  }
-
-  /**
-  * Verify product in cart.
-  */
-  async verifyCart(productName: string) {
-    // Verify the cart buton.
-    I.waitForElement(await this.elementById(dashBoardData.elements.cartById),10)
-    // Click on the cart button.
-    I.click(await this.elementById(dashBoardData.elements.cartById))
-    // Verify shoping cart.
-    I.seeElement(await this.elementById(productData.elements.shoppingCartById))
-    // Verify the product in cart.
-    I.see(productName, await this.elementByText(productName))
   }
 
   /**
