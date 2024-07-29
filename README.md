@@ -8,7 +8,7 @@ npm i
 # Run following command to install codeceptjs with playwright helper.
 npm install codeceptjs playwright --save-dev
 
-# Provide the following data on the "loginAndAddProduct_test.ts" page to run the test:
+# Provide the following data on the "loginAndAddProduct_test.ts" page to in "stepobject" run the test:
 1. phoneNumberOrEmail: Please enter your email or phone number for Amazon account.
 2. password: Please enter your password for Amazon acount.
 3. userName: Please enter your Amazon account user name.
