@@ -37,7 +37,7 @@ class LoginPage {
     // Verify the account option.
     I.seeElement(await commonPage.elementById(loginData.elements.accountById))
     // Added wait for 5 sec.
-    I.wait(5)
+    I.wait(4)
     // Hover over the account option.
     I.moveCursorTo(await commonPage.elementById(loginData.elements.accountById))
     //Verify the manage account button.

@@ -13,9 +13,13 @@ let productName = "ZEBRONICS USB Keyboard with Rupee Key, USB Interface and Retr
 
 Feature('Amazon cart')
 
-Scenario('login and add product to cart', async ({ I }) => {
+// Before each.
+Before(({ I }) => { 
     // Go to login page.
-    await I.amOnPage('/')
+    I.amOnPage('/')
+  })
+
+Scenario('login and add product to cart', async ({ I }) => {
     // Login wit valid credentials.
     await loginPage.login(userName, phoneNumberOrEmail, password)
     // Navigate to home page.
@@ -25,8 +29,11 @@ Scenario('login and add product to cart', async ({ I }) => {
     // Add product to cart.
     await productPage.addProduct(productName)
     // Verify the product in cart.
-    await commonPage.verifyCart(productName)
-    //  Logout      
-    await commonPage.logout()
-
+    await commonPage.verifyCart(productName) 
 })
+
+// After each
+After(({ I }) => { 
+    // Logout      
+   commonPage.logout()
+  })

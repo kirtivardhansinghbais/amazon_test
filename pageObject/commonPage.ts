@@ -1,5 +1,6 @@
 import { dashBoardData } from "../data/dashBoardData"
 import { loginData } from "../data/loginData"
+import { productData } from "../data/productData"
 
 const { I } = inject()
 
@@ -133,10 +134,12 @@ class CommonPage {
   * Verify product in cart.
   */
   async verifyCart(productName: string) {
-    // erify the cart buton.
+    // Verify the cart buton.
     I.waitForElement(await this.elementById(dashBoardData.elements.cartById),10)
     // Click on the cart button.
     I.click(await this.elementById(dashBoardData.elements.cartById))
+    // Verify shoping cart.
+    I.seeElement(await this.elementById(productData.elements.shoppingCartById))
     // Verify the product in cart.
     I.see(productName, await this.elementByText(productName))
   }
