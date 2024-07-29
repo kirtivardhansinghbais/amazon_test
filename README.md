@@ -16,7 +16,7 @@ npx codeceptjs run --steps
 # Open the Test Runner using the following command.
 npx codeceptjs run
 
-Note: Please the following on the "loginAndAddProduct_test.ts" page to run the test:
+Note: Please provide the following on the "loginAndAddProduct_test.ts" page to run the test:
 1. phoneNumberOrEmail
 2. password
 3. userName
