@@ -1,7 +1,7 @@
 export const loginData = {
     elements: {
         accountById: "nav-link-accountList",
-        emailByType: "email",
+        emailOrPhonenumberByType: "email",
         passwordById: "ap_password",
         continueButtonByType: "submit",
         signInButtonById: "signInSubmit",

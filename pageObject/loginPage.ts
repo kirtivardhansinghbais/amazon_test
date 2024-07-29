@@ -12,15 +12,15 @@ class LoginPage {
   * @param phoneNumber
   * @param password
   */
-  async login(username: string, phoneNumber: string, password: string) {
+  async login(username: string, phoneNumberOrEmail: string, password: string) {
     //Verify the account option.
     I.seeElement(await commonPage.elementById(loginData.elements.accountById))
     //Click on the account option.
     I.click(await commonPage.elementById(loginData.elements.accountById))
     //Verify email or phone number field.
-    I.seeElement(await commonPage.elementByType(loginData.elements.emailByType))
+    I.seeElement(await commonPage.elementByType(loginData.elements.emailOrPhonenumberByType))
     //Type email or phone number.
-    I.fillField(await commonPage.elementByType(loginData.elements.emailByType), phoneNumber)
+    I.fillField(await commonPage.elementByType(loginData.elements.emailOrPhonenumberByType), phoneNumberOrEmail)
     //Click on continue button.
     I.click(await commonPage.elementByType(loginData.elements.continueButtonByType))
     //Verify the password field.
