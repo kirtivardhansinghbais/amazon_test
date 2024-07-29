@@ -3,11 +3,11 @@ import commonPage from '../pageObject/commonPage'
 import productPage from '../pageObject/productPage'
 
 // Enter users phone number.
-let phoneNumberOrEmail = "Please enter your email or phone number."
+let phoneNumberOrEmail = ""
 // Enter users password.
-let password = "Please enter your password."
+let password = ""
 // Enter user name.
-let userName = "Please enter your user name."
+let userName = ""
 // Enter product name.
 let productName = "ZEBRONICS USB Keyboard with Rupee Key, USB Interface and Retractable stand - K20"
 
