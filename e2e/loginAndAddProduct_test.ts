@@ -1,6 +1,6 @@
-import loginPage from './pageObject/loginPage'
-import commonPage from './pageObject/commonPage'
-import productPage from './pageObject/productPage'
+import loginPage from '../pageObject/loginPage'
+import commonPage from '../pageObject/commonPage'
+import productPage from '../pageObject/productPage'
 
 //Enter users phone number.
 let phoneNumber = "Please enter your phone number."
