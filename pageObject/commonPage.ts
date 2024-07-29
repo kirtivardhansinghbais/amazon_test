@@ -92,7 +92,6 @@ class CommonPage {
   */
   async elementByh1AndText(value: string) {
     return locate(`//h1[contains(text(),${value})]`)
-
   }
 
   /**
