@@ -6,9 +6,11 @@ export const dashBoardData = {
         searchButtonById: "nav-search-submit-button",
         resultsByText: "Results",
         cartById: "nav-cart-count-container",
-        cartSectionById: "sc-active-cart",
         activeCartViewById: "activeCartViewForm",
-        deleteByValue: "Delete",
-        signOutById: "nav-item-signout"
+        signOutById: "nav-item-signout",
+        manageProfileButtonByDataTestId: "manage-profiles-button",
+        whoIsShoppingPopUpById: "a-popover-header-content",
+        userAccountByDataTestId: "list-profile-row-0-account-holder",
+        closeButtonByAriaLabel: "Close",
     }
 }

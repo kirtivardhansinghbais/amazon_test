@@ -1,3 +1,4 @@
+import { dashBoardData } from "../data/dashBoardData"
 import { loginData } from "../data/loginData"
 import commonPage from "./commonPage"
 const { expect } = require('@playwright/test')
@@ -21,6 +22,8 @@ class LoginPage {
     I.seeElement(await commonPage.elementByType(loginData.elements.emailOrPhonenumberByType))
     // Type email or phone number.
     I.fillField(await commonPage.elementByType(loginData.elements.emailOrPhonenumberByType), phoneNumberOrEmail)
+    // // Verify continue button.
+    // I.seeElement(await commonPage.elementByType(loginData.elements.continueButtonByType))
     // Click on continue button.
     I.click(await commonPage.elementByType(loginData.elements.continueButtonByType))
     // Verify the password field.
@@ -31,6 +34,24 @@ class LoginPage {
     I.seeElement(await commonPage.elementById(loginData.elements.signInButtonById))
     // Click on the sign in button.
     I.click(await commonPage.elementById(loginData.elements.signInButtonById))
+    // // Verify the account option.
+    // I.seeElement(await commonPage.elementById(loginData.elements.accountById))
+    // // Hover over the account option.
+    // I.moveCursorTo(await commonPage.elementById(loginData.elements.accountById))
+    // Verify the manage account button.
+    // I.seeElement(await commonPage.elementByDataTestId(dashBoardData.elements.manageProfileButtonByDataTestId))
+    // // Click on the manage account button.
+    // I.click(await commonPage.elementByDataTestId(dashBoardData.elements.manageProfileButtonByDataTestId))
+    // Verify the who is shopping pop up.
+    // I.see("Who is shopping?", await commonPage.elementById(dashBoardData.elements.whoIsShoppingPopUpById))
+    // // Verify user name.
+    // I.see(username, await commonPage.elementByDataTestId(dashBoardData.elements.userAccountByDataTestId))
+    // // Verify account holder title.
+    // I.see("Account holder", await commonPage.elementByDataTestId(dashBoardData.elements.userAccountByDataTestId))
+    // Verify the close button.
+    // I.seeElement(await commonPage.elementByAriaLabel(dashBoardData.elements.closeButtonByAriaLabel))
+    // // Click on the close button.
+    // I.click(await commonPage.elementByAriaLabel(dashBoardData.elements.closeButtonByAriaLabel))
     // Verify the account option.
     I.seeElement(await commonPage.elementById(loginData.elements.accountById))
     // Click on the account option.

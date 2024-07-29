@@ -46,6 +46,14 @@ class CommonPage {
   }
 
   /**
+  * element by datz-testid
+  * @param value
+  */
+  async elementByDataTestId(value: string) {
+    return locate(`//*[@data-testid='${value}']`)
+  }
+
+  /**
   * element by type
   * @param value
   */
@@ -99,15 +107,15 @@ class CommonPage {
   * @param productName
   */
   async searchProduct(productName: string) {
-    //Verify the search bar.
+    // Verify the search bar.
     I.seeElement(await this.elementById(dashBoardData.elements.searchBarById))
-    //Type the product name.
+    // Type the product name.
     I.fillField(await this.elementById(dashBoardData.elements.searchBarById), productName)
-    //Verify search button.
+    // Verify search button.
     I.seeElement(await this.elementById(dashBoardData.elements.searchButtonById))
-    //Click on search button.
+    // Click on search button.
     I.click(await this.elementById(dashBoardData.elements.searchButtonById))
-    //Wait for the search result element to be viisible.
+    // Wait for the search result element to be viisible.
     I.waitForElement(await this.elementByText(dashBoardData.elements.resultsByText), 10)
   }
 
@@ -115,9 +123,9 @@ class CommonPage {
   * Navigate to home page.
   */
   async navigateToHomePage() {
-    //Verify the amazon logo.
+    // Verify the amazon logo.
     I.seeElement(await this.elementById(dashBoardData.elements.logoById))
-    //Click on the amazon logo.
+    // Click on the amazon logo.
     I.click(await this.elementById(dashBoardData.elements.logoById))
   }
 
@@ -125,11 +133,11 @@ class CommonPage {
   * Verify product in cart.
   */
   async verifyCart(productName: string) {
-    //Verify the cart buton.
+    // erify the cart buton.
     I.seeElement(await this.elementById(dashBoardData.elements.cartById))
-    //Click on the cart button.
+    // Click on the cart button.
     I.click(await this.elementById(dashBoardData.elements.cartById))
-    //Verify the product in cart.
+    // Verify the product in cart.
     I.see(productName, await this.elementByText(productName))
   }
 
@@ -137,9 +145,13 @@ class CommonPage {
   * Logout.
   */
   async logout() {
-    //Hover over the account option.
+    // Verify the account option.
+    I.seeElement(await this.elementById(loginData.elements.accountById))
+    // Hover over the account option.
     I.moveCursorTo(await this.elementById(loginData.elements.accountById))
-    //Click on the sign out button.
+    // Verify the sign out button.
+    I.seeElement(await this.elementById(dashBoardData.elements.signOutById))
+    // Click on the sign out button.
     I.click(await this.elementById(dashBoardData.elements.signOutById))
   }
 }
