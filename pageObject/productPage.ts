@@ -6,14 +6,25 @@ const { I } = inject()
 
 class ProductPage {
     
+    /**
+    * Add product to cart.
+    * @param productName
+    */
     async addProduct(productName: string) {
+    //Verify product is visible.
     I.seeElement(await commonPage.elementByText(productName))
+    //Click on the product.
     I.click(await commonPage.elementByText(productName))
-    I.switchToNextTab() // Switch to the new tab opened
+    //Switch to the new tab opened.
+    I.switchToNextTab() 
     I.wait(5)
+    //Wait fot product title element to be visible.
     I.waitForElement(await commonPage.elementById(productData.elements.productTitleById), 10)
+    //Verify product name.
     I.see(productName, await commonPage.elementById(productData.elements.productTitleById))
-    I.waitForElement(await commonPage.elementById(productData.elements.addToCartButtonById), )
+    //Wait for add to cart button element to be visible.
+    I.waitForElement(await commonPage.elementById(productData.elements.addToCartButtonById), 10)
+    //Click on the add to cart button.
     I.click(await commonPage.elementById(productData.elements.addToCartButtonById))
 }
 }
