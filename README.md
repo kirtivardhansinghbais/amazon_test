@@ -1,4 +1,7 @@
 # Initial setup
+Install codeceptjs with playwright helper in your machine
+Run following command to codeceptjs with playwright helper: npm install codeceptjs playwright --save-dev
+
 Install node and npm in your machine
 Run following command to install node_modules: npm i 
 
