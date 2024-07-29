@@ -1,7 +1,7 @@
 export const productData = {
     
     elements: {
-     productTitleById: "title",
+     productTitleById: "productTitle",
      addToCartButtonById: "addToCart_feature_div",
      
     }

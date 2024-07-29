@@ -134,7 +134,7 @@ class CommonPage {
   */
   async verifyCart(productName: string) {
     // erify the cart buton.
-    I.seeElement(await this.elementById(dashBoardData.elements.cartById))
+    I.waitForElement(await this.elementById(dashBoardData.elements.cartById),10)
     // Click on the cart button.
     I.click(await this.elementById(dashBoardData.elements.cartById))
     // Verify the product in cart.

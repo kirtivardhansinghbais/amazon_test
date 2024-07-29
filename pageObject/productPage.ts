@@ -18,14 +18,14 @@ class ProductPage {
     // Switch to the new tab opened.
     I.switchToNextTab() 
     // Added wait for 5 sec.
-    I.wait(5)
+    I.wait(6)
     // Wait fot product title element to be visible.
     I.waitForElement(await commonPage.elementById(productData.elements.productTitleById), 10)
     // Verify product name.
     I.see(productName, await commonPage.elementById(productData.elements.productTitleById))
     // Wait for add to cart button element to be visible.
     I.waitForElement(await commonPage.elementById(productData.elements.addToCartButtonById), 10)
-    //  Click on the add to cart button.
+    // Click on the add to cart button.
     I.click(await commonPage.elementById(productData.elements.addToCartButtonById))
 }
 }

@@ -9,7 +9,7 @@ export const dashBoardData = {
         activeCartViewById: "activeCartViewForm",
         signOutById: "nav-item-signout",
         manageProfileButtonByDataTestId: "manage-profiles-button",
-        whoIsShoppingPopUpById: "a-popover-header-content",
+        whoIsShoppingPopUpByText: "Who is shopping?",
         userAccountByDataTestId: "list-profile-row-0-account-holder",
         closeButtonByAriaLabel: "Close",
     }
